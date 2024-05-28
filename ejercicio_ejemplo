@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNmfQ7QGSaVJ4bjo7uraR6/",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/brian-avila-contreras/trabajo_python_csv/blob/main/ejercicio_ejemplo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "qsEVvhAnAWJ_"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "datos=pd.read_csv('https://raw.githubusercontent.com/brian-avila-contreras/trabajo_python_csv/main/Septiembre_2023.csv')\n",
+        "datos.head()\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "datos=pd.DataFrame(datos)\n",
+        "print(datos)"
+      ],
+      "metadata": {
+        "id": "y8gT6BEHHFKl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "datos.isnull().sum()"
+      ],
+      "metadata": {
+        "id": "MnsVStO-Hdm4"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.figure(figsize=(15,8))\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.fill_between(datos.COD_PAI4, datos.FOBPES)\n",
+        "plt.title('ejes a comparar')\n",
+        "plt.xlabel('Codigo')\n",
+        "plt.ylabel('COP cantida')\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "X97vUMTSIIjI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.figure(figsize=(15,8))\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.bar(datos.COD_PAI4, datos.FOBPES)\n",
+        "plt.title('ejes a comparar')\n",
+        "plt.xlabel('Codigo')\n",
+        "plt.ylabel('COP cantida')\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "6Q6qm34rK2s6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "media=datos.FOBPES.mean()\n",
+        "print(f'media en COP es: {media:.0f}')"
+      ],
+      "metadata": {
+        "id": "3be3mFvgMFsX"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "max_pes=datos.FOBPES.max()\n",
+        "print(f'el valor maximo en COP es: {max_pes:.0f}')"
+      ],
+      "metadata": {
+        "id": "OEs8Jd--Mkkn"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "min_pes=datos.FOBPES.min()\n",
+        "print(f'el valor minimo en COP es: {min_pes:.0f}')"
+      ],
+      "metadata": {
+        "id": "hjwrIQQLM96f"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "UPilEyNRMZSP"
+      }
+    }
+  ]
+}
